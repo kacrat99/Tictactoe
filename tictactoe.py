@@ -9,7 +9,7 @@ def main_game(board):
     player2 = players[1]
     print("Player1 is: " + player1 + " player2 is: " + player2)
     put_in_move(p1_move(),board,player1)
-    game_board(board)
+
 
 
 
@@ -28,22 +28,33 @@ def game_board(board):
 
 def put_in_move(x,board,player):
     board[x] = player
+    game_board(board)
     if if_game_is_over(board):
-        input('koniec gry, czy chcesz zagrac jeszcze raz?(yes/no)')
+        koniec_gry()
 
 
 
 def if_game_is_over(board):
-    return True
+    pass
 
 
-
-def koniec_gry(string):
-    if string == 'yes':
-        main_game()
-    else:
-        print("thanks for playing")
+def draw(board):
+    pass
+def win_p1(board):
+    pass
+def win_p2(board):
+    pass
+def koniec_gry():
+    flag = input('game over, do you want to play again?(yes/no)')
+    if flag == 'yes':
+        board =[' ']*10
+        main_game(board)
+    elif flag =='no':
+        print('thanks for playing!')
         exit()
+    else:
+        koniec_gry()    
+
 def player_input():
     marker = ''
     while marker not in ['x','o']:
